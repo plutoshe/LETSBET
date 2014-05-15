@@ -1,0 +1,4 @@
+LETSBET
+=======
+
+A IOS APP FOR BETS
