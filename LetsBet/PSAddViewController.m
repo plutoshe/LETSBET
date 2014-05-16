@@ -55,7 +55,23 @@
     if (self.callback) {
         self.callback(tmpView.text, tmpView.text);
     }
-            [self.view removeFromSuperview];
+    UINavigationController *navController = self.navigationController;
+    // retain ourselves so that the controller will still exist once it's popped off
+//    [self retain];
+    [navController popViewControllerAnimated:NO];
+//    [self.view bringSubviewToFront:self.mapView];
+//    [self.view removeFromSuperview];
+  //  self = nil;
+//    [self.view willRemoveToSubview];
+  //  [self.view willMoveToSuperview:[self.view superview]];
+    //self.viewAController.view removeFromSuperview];
+    // dispose of the view controller so it doesn't leak.
+//    self.viewAController = nil;
+//    [self.view didMoveToSuperview];
+
+//        self.viewController = nil;
+
+///    self.view = nil;
 }
 
 - (void)viewDidLoad

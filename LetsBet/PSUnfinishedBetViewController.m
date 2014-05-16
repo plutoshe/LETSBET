@@ -23,7 +23,7 @@
 @property NSMutableArray* bets;
 @property int size;
 @property int section;
-@property (weak, nonatomic) IBOutlet UINavigationItem *Nav1;
+
 
 @end
 
@@ -44,6 +44,17 @@
             
             // let's do some action after with returned values
             NSLog(@"%@%@", value1, value2);
+//            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+            
+//            [_bets add:cellIndexPath.row];
+            NSDictionary* tmpD = @{@"Name" : @"1234", @"radiant" : @"W1", @"dire" : @"W2", @"debtR":@"d1", @"debtD":@"d2"};
+            [_bets insertObject: tmpD atIndex:0];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            
+  //          [self.tableView addRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+//            [self.tableView ]
+//            [viewController removeFromParentViewController];
         };
         
     }
@@ -100,7 +111,7 @@
     self.navigationController.navigationBar.translucent = NO;
     self.title = @"####";
     self.tabBarController.title = @"@@@@";
-    UIBarButtonItem *createBut =[[UIBarButtonItem alloc] initWithTitle:@"NEW1" style:UIBarButtonItemStylePlain target:self action:@selector(insertObject:)];
+    UIBarButtonItem *createBut =[[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(insertObject:)];
 
     self.tabBarController.navigationItem.rightBarButtonItem =createBut;
     
@@ -344,7 +355,7 @@
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
                 NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    NSLog(@"%@ %d %d", cellIndexPath, cellIndexPath.row, cellIndexPath.section);
+    NSLog(@"%@ %ld %ld", cellIndexPath, (long)cellIndexPath.row, (long)cellIndexPath.section);
     switch (index) {
         case 0:
         {
