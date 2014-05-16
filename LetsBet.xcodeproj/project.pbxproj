@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9207478E1925DDA9007989FA /* PSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9207478D1925DDA9007989FA /* PSAddViewController.m */; };
+		920747911925DE18007989FA /* LTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 920747901925DE18007989FA /* LTView.m */; };
 		925004741924EBA10002B04A /* PSTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 925004731924EBA10002B04A /* PSTestViewController.m */; };
 		9250EFF51923505000507EF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9250EFF41923505000507EF7 /* Foundation.framework */; };
 		9250EFF71923505000507EF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9250EFF61923505000507EF7 /* CoreGraphics.framework */; };
@@ -44,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9207478C1925DDA9007989FA /* PSAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAddViewController.h; sourceTree = "<group>"; };
+		9207478D1925DDA9007989FA /* PSAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAddViewController.m; sourceTree = "<group>"; };
+		9207478F1925DE18007989FA /* LTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTView.h; path = Library/LTView.h; sourceTree = "<group>"; };
+		920747901925DE18007989FA /* LTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LTView.m; path = Library/LTView.m; sourceTree = "<group>"; };
 		925004721924EBA10002B04A /* PSTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTestViewController.h; sourceTree = "<group>"; };
 		925004731924EBA10002B04A /* PSTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTestViewController.m; sourceTree = "<group>"; };
 		9250EFF11923505000507EF7 /* LetsBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +152,10 @@
 				9250F0031923505000507EF7 /* PSAppDelegate.h */,
 				9250F0041923505000507EF7 /* PSAppDelegate.m */,
 				9250F0061923505000507EF7 /* Main.storyboard */,
+				9207478C1925DDA9007989FA /* PSAddViewController.h */,
+				9207478D1925DDA9007989FA /* PSAddViewController.m */,
+				9207478F1925DE18007989FA /* LTView.h */,
+				920747901925DE18007989FA /* LTView.m */,
 				925004721924EBA10002B04A /* PSTestViewController.h */,
 				925004731924EBA10002B04A /* PSTestViewController.m */,
 				9250F0091923505000507EF7 /* PSViewController.h */,
@@ -311,6 +321,7 @@
 				9250F0011923505000507EF7 /* main.m in Sources */,
 				92D4DFF41923D13E005EA4AC /* PSUniSwipeCell.m in Sources */,
 				92A723521924A4CD00783125 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				9207478E1925DDA9007989FA /* PSAddViewController.m in Sources */,
 				92A723541924A4CD00783125 /* SWLongPressGestureRecognizer.m in Sources */,
 				92A723531924A4CD00783125 /* SWCellScrollView.m in Sources */,
 				92D4DFED1923991D005EA4AC /* PSUnfinishedBetViewController.m in Sources */,
@@ -321,6 +332,7 @@
 				92A723551924A4CD00783125 /* SWTableViewCell.m in Sources */,
 				92A723561924A4CD00783125 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				92D4DFE319235952005EA4AC /* PSTutorialPage.m in Sources */,
+				920747911925DE18007989FA /* LTView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

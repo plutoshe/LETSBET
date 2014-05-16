@@ -59,13 +59,19 @@
                                                         cancelButtonTitle:@"取消"
                                               otherButtonTitles:@"确定", nil];
  [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];*/
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"类别修改" message:@" " delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"修改",nil];
-     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+/*    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"类别修改" message:@" " delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"修改",nil];
+     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];*/
+    
  /*   UITextField * txt = [[UITextField alloc] init];
     txt.backgroundColor = [UIColor whiteColor];
     txt.frame = CGRectMake(alert.center.x+65,alert.center.y+48, 150,23);*/
 //    [alert addSubview:txt];
-    [alert show];
+   // [alert show];
+     [self performSegueWithIdentifier:@"addNewBet" sender:self];
+    [UIView beginAnimations:@"View Flip" context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -75,6 +81,7 @@
     self.title = @"####";
     self.tabBarController.title = @"@@@@";
     UIBarButtonItem *createBut =[[UIBarButtonItem alloc] initWithTitle:@"NEW1" style:UIBarButtonItemStylePlain target:self action:@selector(insertObject:)];
+
     self.tabBarController.navigationItem.rightBarButtonItem =createBut;
     
     

@@ -179,11 +179,31 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="TIK-sq-0dp" id="jDt-bU-nxY"/>
+                        <segue destination="g3O-Ae-Edy" kind="push" identifier="addNewBet" id="qZj-ZP-SFs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m79-pw-LAH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="757"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="9fd-t9-ABG">
+            <objects>
+                <viewController id="g3O-Ae-Edy" customClass="PSAddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UGx-Oc-jfu"/>
+                        <viewControllerLayoutGuide type="bottom" id="KoC-DN-xFx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MZv-uw-WAO">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Rl4-8P-uRS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FWy-vc-4p9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1529" y="775"/>
         </scene>
         <!--Table View Controller - Item-->
         <scene sceneID="hpV-4F-7QQ">
