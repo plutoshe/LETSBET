@@ -8,6 +8,7 @@
 
 #import "PSUnfinishedBetViewController.h"
 #import "PSUniSwipeCell.h"
+#import "PSAddViewController.h"
 
 
 @interface PSUnfinishedBetViewController () {
@@ -26,8 +27,27 @@
 
 @end
 
+
+
 @implementation PSUnfinishedBetViewController
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[PSAddViewController class]])
+    {
+        PSAddViewController *viewController = segue.destinationViewController;
+        
+        viewController.callback = ^(NSString *value1, NSString *value2) {
+            // optionally, close B
+            //[self.navigationController popViewControllerAnimated:YES];
+            
+            // let's do some action after with returned values
+            NSLog(@"%@%@", value1, value2);
+        };
+        
+    }
+}
 
 /*
 - (void) navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -68,9 +88,9 @@
 //    [alert addSubview:txt];
    // [alert show];
      [self performSegueWithIdentifier:@"addNewBet" sender:self];
-    [UIView beginAnimations:@"View Flip" context:NULL];
+/*    [UIView beginAnimations:@"View Flip" context:NULL];
     [UIView setAnimationDuration:0.4];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];*/
 
 }
 

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PSAddViewController : UIViewController
-
+ @property (copy) void(^callback)(NSString *value1, NSString *value2);
 @end

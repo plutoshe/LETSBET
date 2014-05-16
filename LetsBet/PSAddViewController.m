@@ -10,6 +10,7 @@
 #import "LTView.h"
 @interface PSAddViewController ()
 @property int size;
+
 @end
 
 @implementation PSAddViewController
@@ -23,11 +24,51 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                           forView:self.view cache:YES];
+
+    [UIView beginAnimations:@"View Flip" context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.translucent = YES;
+    
+    //    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+
+
+-(void)createObject:(id)sender{
+    LTView *tmpView = (LTView *)[self.view viewWithTag:100];
+    if (self.callback) {
+        self.callback(tmpView.text, tmpView.text);
+    }
+            [self.view removeFromSuperview];
+}
+
 - (void)viewDidLoad
 {
-    self.navigationItem.title = @"BetCreate";
-    
+   
     [super viewDidLoad];
+    self.navigationItem.title = @"BetCreate";
+    //    self.navigationItem
+    UIBarButtonItem *createBut =[[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(createObject:)];
+    
+    //    self.tabBarController.navigationItem.rightBarButtonItem =createBut;
+    
+    self.navigationItem.rightBarButtonItem = createBut;
     NSArray *labelNames=@[@"事务",@"甲方",@"乙方",@"甲方惩罚",@"乙方惩罚"];
     NSArray *placeHolders=@[@"请输入事务",@"请输入甲方",@"请输入乙方",@"请输入惩罚措施",@"请输入惩罚措施"];
     CGFloat y=50;
