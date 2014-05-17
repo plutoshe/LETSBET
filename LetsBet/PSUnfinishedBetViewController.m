@@ -115,7 +115,20 @@
 
     self.tabBarController.navigationItem.rightBarButtonItem =createBut;
     
-    
+    [self.tabBarController.tabBar setBackgroundColor: [UIColor redColor]];//[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    for (int i = 0; i < [tabBar.items count]; i++) {
+        UITabBarItem *t1 = [tabBar.items objectAtIndex:i];
+//        NSLog(@"%@", t1.title);
+        t1.title = @"1";
+        t1.selectedImage = [UIImage imageNamed:@"textile"];
+//        [t1 setBackgroundImage:[UIImage imageNamed:@"textile"]];
+//         [t1 setFinishedSelectedImage:[UIImage imageNamed:@"textile"] withFinishedUnselectedImage:[UIImage imageNamed:@"check"]];
+       // [t1 initWithTitle:@"!" image:@"textile"];
+//        [t1 ]
+    }
+//    [self.tabBarController.tabBarItem ]
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"textile"] forBarMetrics:UIBarMetricsDefault];
     //    self.navigationItem.leftBarButtonItem = createBut;
 //    self.navigationController.navigationBar.translucent = NO;
 	
@@ -187,6 +200,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 90;
+    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
 
     //    self.navigationController.navigationItem.title = @"!!!";
     
@@ -206,13 +220,61 @@
     /*if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); // Makes the horizontal row seperator stretch the entire length of the table view
     }*/
+//    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:bssid,@"bssid",@"jiaxuzhu",@"name",@"1100012981",@"id",@"",@"date",@"",@"time",nil];
     
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8888/bets"];//162.105.74.252:8888/image1"];
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setValue:@"0:b:85:9a:f4:20" forKey:@"bssid"];
+    [dictionary setValue:@"id1" forKey:@"name"];
+    NSError *error = nil;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:wifiData options:NSJSONWritingPrettyPrinted error:&error];
+    
+    
+  //  NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    //    NSString* postURL = [NSString stringWithData:jsonData encoding:NSUTF8StringEncoding];
+    [request setHTTPMethod:@"GET"];//设置请求方式为POST，默认为GET
+    NSString *str = @"type=focus-c";//设置参数
+
+    //  [request setHTTPBody:jsonData];
+//    [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+  //  [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+    [conn start];
+    
+    
+    NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+//    NSMutableArray *results = [str1 JSONValue];
+//    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:nil message:str1 delegate:nil cancelButtonTitle:@"OK" otherButto
+//    NSLog(@")
+    
+    //NSData -> NSDictionary
+//    NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[self dataFilePath]];
+//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:received];
+  //  NSDictionary *myDictionary = [unarchiver decodeObjectForKey:@"Some Key Value"];
+//    [unarchiver finishDecoding];
+//     NSError* error1 = nil;
+//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:received options:kNilOptions error: error];
+
+
+    NSError* error1;
+    NSDictionary* dict = [NSJSONSerialization
+                          JSONObjectWithData:received
+                          
+                          options:kNilOptions
+                          error:&error1];
+    NSLog(@"%@",  [dict objectForKey:@"count"]);
+//    NSLog(<#NSString *format, ...#>)
     self.bets = [[NSMutableArray alloc] initWithArray:
-                 @[@{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
+                 [dict objectForKey:@"bets"]];
+/*                 @[@{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
                    @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
                    @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
                    @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"}
-                   ]];
+                   ]];*/
     self.size = [self.bets count];
     NSLog(@"%d", _size);
     _section = 1;
@@ -239,10 +301,10 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"UnfinishedBet";
-}
+}*/
 
 
 
@@ -276,7 +338,7 @@
         cell.leftUtilityButtons = [self leftButtons];
         cell.rightUtilityButtons = [self rightButtons];
         cell.delegate = self;
-        [cell setBackgroundColor:[UIColor redColor]];
+//        [cell setBackgroundColor:[UIColor redColor]];
         NSString *dateObject = _bets[indexPath.row][@"Name"];
     
     NSLog(@"----%@", dateObject);
@@ -286,6 +348,8 @@
     cell.secondParty.text = _bets[indexPath.row][@"PartyB"];
     cell.firstPenalty.text = _bets[indexPath.row][@"PenaltyA"];
     cell.secondPenalty.text = _bets[indexPath.row][@"PenaltyB"];
+    [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
+
         return cell;
    
     
