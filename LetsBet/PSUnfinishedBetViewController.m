@@ -222,7 +222,7 @@
     }*/
 //    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:bssid,@"bssid",@"jiaxuzhu",@"name",@"1100012981",@"id",@"",@"date",@"",@"time",nil];
     
-    NSURL *url = [NSURL URLWithString:@"http://localhost:8888/bets"];//162.105.74.252:8888/image1"];
+    NSURL *url = [NSURL URLWithString:@"http://162.105.74.252:8888/bets"];//162.105.74.252:8888/image1"];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     [dictionary setValue:@"0:b:85:9a:f4:20" forKey:@"bssid"];
     [dictionary setValue:@"id1" forKey:@"name"];
