@@ -121,14 +121,14 @@
         UITabBarItem *t1 = [tabBar.items objectAtIndex:i];
 //        NSLog(@"%@", t1.title);
         t1.title = @"1";
-        t1.selectedImage = [UIImage imageNamed:@"textile"];
+      //  t1.selectedImage = [UIImage imageNamed:@"textile"];
 //        [t1 setBackgroundImage:[UIImage imageNamed:@"textile"]];
 //         [t1 setFinishedSelectedImage:[UIImage imageNamed:@"textile"] withFinishedUnselectedImage:[UIImage imageNamed:@"check"]];
        // [t1 initWithTitle:@"!" image:@"textile"];
 //        [t1 ]
     }
 //    [self.tabBarController.tabBarItem ]
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"textile"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"textile"] forBarMetrics:UIBarMetricsDefault];
     //    self.navigationItem.leftBarButtonItem = createBut;
 //    self.navigationController.navigationBar.translucent = NO;
 	
@@ -200,7 +200,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 90;
-    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
+//    [self.tableView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
 
     //    self.navigationController.navigationItem.title = @"!!!";
     
@@ -348,7 +348,7 @@
     cell.secondParty.text = _bets[indexPath.row][@"PartyB"];
     cell.firstPenalty.text = _bets[indexPath.row][@"PenaltyA"];
     cell.secondPenalty.text = _bets[indexPath.row][@"PenaltyB"];
-    [cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
+    //[cell setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"textile"]]];
 
         return cell;
    
