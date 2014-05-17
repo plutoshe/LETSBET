@@ -51,9 +51,19 @@
 
 
 -(void)createObject:(id)sender{
-    LTView *tmpView = (LTView *)[self.view viewWithTag:100];
+    
+
+    NSMutableDictionary *tmp = [NSMutableDictionary dictionary];
+    NSArray *name = @[@"Name", @"PartyA", @"PartyB", @"PenaltyA", @"PenaltyB"];
+    
+    for (int i = 100; i <= _size; i++) {
+        LTView *tmpView = (LTView *)[self.view viewWithTag:i];
+        NSLog(@"%@ %@", tmpView.text, name[i-100]);
+        [tmp setObject: tmpView.text forKey: name[i-100]];
+    }
+  //  tmp[
     if (self.callback) {
-        self.callback(tmpView.text, tmpView.text);
+        self.callback(tmp);
     }
     UINavigationController *navController = self.navigationController;
     // retain ourselves so that the controller will still exist once it's popped off

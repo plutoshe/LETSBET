@@ -15,5 +15,9 @@ FOUNDATION_EXPORT CGFloat const kExampleCellHeight;
 //@property (nonatomic, strong) UILabel *exampleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *debtName;
 @property (weak, nonatomic) IBOutlet UIImageView *debtImage;
+@property (weak, nonatomic) IBOutlet UILabel *firstParty;
+@property (weak, nonatomic) IBOutlet UILabel *secondParty;
+@property (weak, nonatomic) IBOutlet UILabel *firstPenalty;
+@property (weak, nonatomic) IBOutlet UILabel *secondPenalty;
 
 @end

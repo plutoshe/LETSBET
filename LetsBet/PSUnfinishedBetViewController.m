@@ -38,17 +38,17 @@
     {
         PSAddViewController *viewController = segue.destinationViewController;
         
-        viewController.callback = ^(NSString *value1, NSString *value2) {
+        viewController.callback = ^(NSMutableDictionary *value1) {
             // optionally, close B
             //[self.navigationController popViewControllerAnimated:YES];
             
             // let's do some action after with returned values
-            NSLog(@"%@%@", value1, value2);
+//            NSLog(@"%@%@", value1, value2);
 //            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             
 //            [_bets add:cellIndexPath.row];
-            NSDictionary* tmpD = @{@"Name" : @"1234", @"radiant" : @"W1", @"dire" : @"W2", @"debtR":@"d1", @"debtD":@"d2"};
-            [_bets insertObject: tmpD atIndex:0];
+//            NSDictionary* tmpD = @{@"Name" : @"1234", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"};
+            [_bets insertObject: value1 atIndex:0];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             
@@ -208,10 +208,10 @@
     }*/
     
     self.bets = [[NSMutableArray alloc] initWithArray:
-                 @[@{@"Name" : @"h1", @"radiant" : @"W1", @"dire" : @"W2", @"debtR":@"d1", @"debtD":@"d2"},
-                   @{@"Name" : @"h1", @"radiant" : @"W1", @"dire" : @"W2", @"debtR":@"d1", @"debtD":@"d2"},
-                   @{@"Name" : @"h1", @"radiant" : @"W1", @"dire" : @"W2", @"debtR":@"d1", @"debtD":@"d2"},
-                   @{@"Name" : @"h1", @"radiant" : @"W1", @"dire" : @"W2", @"debtR":@"d1", @"debtD":@"d2"},
+                 @[@{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
+                   @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
+                   @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
+                   @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"}
                    ]];
     self.size = [self.bets count];
     NSLog(@"%d", _size);
@@ -241,7 +241,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"!!!";
+    return @"UnfinishedBet";
 }
 
 
@@ -278,9 +278,14 @@
         cell.delegate = self;
         [cell setBackgroundColor:[UIColor redColor]];
         NSString *dateObject = _bets[indexPath.row][@"Name"];
+    
     NSLog(@"----%@", dateObject);
-        cell.debtName.text = [NSString stringWithFormat:@"----%@", dateObject];
-        
+    cell.debtName.text = _bets[indexPath.row][@"Name"];
+    //[NSString stringWithFormat:@"----%@", dateObject];
+    cell.firstParty.text = _bets[indexPath.row][@"PartyA"];
+    cell.secondParty.text = _bets[indexPath.row][@"PartyB"];
+    cell.firstPenalty.text = _bets[indexPath.row][@"PenaltyA"];
+    cell.secondPenalty.text = _bets[indexPath.row][@"PenaltyB"];
         return cell;
    
     
