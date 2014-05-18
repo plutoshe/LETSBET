@@ -29,6 +29,9 @@
 		92A723551924A4CD00783125 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A7234D1924A4CD00783125 /* SWTableViewCell.m */; };
 		92A723561924A4CD00783125 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A7234F1924A4CD00783125 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		92A723571924A4CD00783125 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A723511924A4CD00783125 /* SWUtilityButtonView.m */; };
+		92B6BA281928BB0000427B39 /* PSGlobalBetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B6BA271928BB0000427B39 /* PSGlobalBetsViewController.m */; };
+		92B6BA2B1928BC6400427B39 /* PSGloSwipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B6BA2A1928BC6400427B39 /* PSGloSwipeCell.m */; };
+		92B6BA2E1928BFFB00427B39 /* PSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B6BA2D1928BFFB00427B39 /* PSDetailViewController.m */; };
 		92D4DFE319235952005EA4AC /* PSTutorialPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D4DFE219235952005EA4AC /* PSTutorialPage.m */; };
 		92D4DFEA19238C78005EA4AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D4DFE919238C78005EA4AC /* Images.xcassets */; };
 		92D4DFED1923991D005EA4AC /* PSUnfinishedBetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D4DFEC1923991D005EA4AC /* PSUnfinishedBetViewController.m */; };
@@ -82,6 +85,12 @@
 		92A7234F1924A4CD00783125 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		92A723501924A4CD00783125 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		92A723511924A4CD00783125 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		92B6BA261928BB0000427B39 /* PSGlobalBetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGlobalBetsViewController.h; sourceTree = "<group>"; };
+		92B6BA271928BB0000427B39 /* PSGlobalBetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGlobalBetsViewController.m; sourceTree = "<group>"; };
+		92B6BA291928BC6400427B39 /* PSGloSwipeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGloSwipeCell.h; sourceTree = "<group>"; };
+		92B6BA2A1928BC6400427B39 /* PSGloSwipeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGloSwipeCell.m; sourceTree = "<group>"; };
+		92B6BA2C1928BFFB00427B39 /* PSDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDetailViewController.h; sourceTree = "<group>"; };
+		92B6BA2D1928BFFB00427B39 /* PSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDetailViewController.m; sourceTree = "<group>"; };
 		92D4DFE119235952005EA4AC /* PSTutorialPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTutorialPage.h; sourceTree = "<group>"; };
 		92D4DFE219235952005EA4AC /* PSTutorialPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTutorialPage.m; sourceTree = "<group>"; };
 		92D4DFE919238C78005EA4AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -163,9 +172,15 @@
 				92D4DFE119235952005EA4AC /* PSTutorialPage.h */,
 				92D4DFEB1923991D005EA4AC /* PSUnfinishedBetViewController.h */,
 				92D4DFEC1923991D005EA4AC /* PSUnfinishedBetViewController.m */,
+				92B6BA261928BB0000427B39 /* PSGlobalBetsViewController.h */,
+				92B6BA271928BB0000427B39 /* PSGlobalBetsViewController.m */,
+				92B6BA2C1928BFFB00427B39 /* PSDetailViewController.h */,
+				92B6BA2D1928BFFB00427B39 /* PSDetailViewController.m */,
 				92D4DFE219235952005EA4AC /* PSTutorialPage.m */,
 				92D4DFF21923D13E005EA4AC /* PSUniSwipeCell.h */,
 				92D4DFF31923D13E005EA4AC /* PSUniSwipeCell.m */,
+				92B6BA291928BC6400427B39 /* PSGloSwipeCell.h */,
+				92B6BA2A1928BC6400427B39 /* PSGloSwipeCell.m */,
 				92A723451924A4CD00783125 /* PodFiles */,
 				9250EFFB1923505000507EF7 /* Supporting Files */,
 			);
@@ -320,11 +335,13 @@
 			files = (
 				9250F0011923505000507EF7 /* main.m in Sources */,
 				92D4DFF41923D13E005EA4AC /* PSUniSwipeCell.m in Sources */,
+				92B6BA281928BB0000427B39 /* PSGlobalBetsViewController.m in Sources */,
 				92A723521924A4CD00783125 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				9207478E1925DDA9007989FA /* PSAddViewController.m in Sources */,
 				92A723541924A4CD00783125 /* SWLongPressGestureRecognizer.m in Sources */,
 				92A723531924A4CD00783125 /* SWCellScrollView.m in Sources */,
 				92D4DFED1923991D005EA4AC /* PSUnfinishedBetViewController.m in Sources */,
+				92B6BA2E1928BFFB00427B39 /* PSDetailViewController.m in Sources */,
 				9250F00B1923505000507EF7 /* PSViewController.m in Sources */,
 				9250F0051923505000507EF7 /* PSAppDelegate.m in Sources */,
 				92A723571924A4CD00783125 /* SWUtilityButtonView.m in Sources */,
@@ -332,6 +349,7 @@
 				92A723551924A4CD00783125 /* SWTableViewCell.m in Sources */,
 				92A723561924A4CD00783125 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				92D4DFE319235952005EA4AC /* PSTutorialPage.m in Sources */,
+				92B6BA2B1928BC6400427B39 /* PSGloSwipeCell.m in Sources */,
 				920747911925DE18007989FA /* LTView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

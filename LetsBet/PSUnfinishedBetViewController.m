@@ -145,8 +145,6 @@
 
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-        self.navigationController.navigationBar.hidden = YES;
-    self.navigationController.navigationBar.translucent = YES;
 
 //    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
@@ -212,52 +210,19 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(toggleCells:) forControlEvents:UIControlEventValueChanged];
     refreshControl.tintColor = [UIColor blueColor];
-
     [self.tableView addSubview:refreshControl];
     self.refreshControl = refreshControl;
     
-    // If you set the seperator inset on iOS 6 you get a NSInvalidArgumentException...weird
-    /*if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
-        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0); // Makes the horizontal row seperator stretch the entire length of the table view
-    }*/
-//    NSDictionary *wifiData = [[NSDictionary alloc] initWithObjectsAndKeys:bssid,@"bssid",@"jiaxuzhu",@"name",@"1100012981",@"id",@"",@"date",@"",@"time",nil];
     
-    NSURL *url = [NSURL URLWithString:@"http://162.105.74.252:8888/bets"];//162.105.74.252:8888/image1"];
+  /*  NSURL *url = [NSURL URLWithString:@"http://162.105.74.252:8888/mybets"];//162.105.74.252:8888/image1"];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    [dictionary setValue:@"0:b:85:9a:f4:20" forKey:@"bssid"];
-    [dictionary setValue:@"id1" forKey:@"name"];
-    NSError *error = nil;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
-    
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:wifiData options:NSJSONWritingPrettyPrinted error:&error];
-    
-    
-  //  NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    //    NSString* postURL = [NSString stringWithData:jsonData encoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"GET"];//设置请求方式为POST，默认为GET
-    NSString *str = @"type=focus-c";//设置参数
-
-    //  [request setHTTPBody:jsonData];
-//    [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
-  //  [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
     [conn start];
     
     
     NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *str1 = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-//    NSMutableArray *results = [str1 JSONValue];
-//    UIAlertView* alert=[[UIAlertView alloc] initWithTitle:nil message:str1 delegate:nil cancelButtonTitle:@"OK" otherButto
-//    NSLog(@")
-    
-    //NSData -> NSDictionary
-//    NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[self dataFilePath]];
-//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:received];
-  //  NSDictionary *myDictionary = [unarchiver decodeObjectForKey:@"Some Key Value"];
-//    [unarchiver finishDecoding];
-//     NSError* error1 = nil;
-//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:received options:kNilOptions error: error];
 
 
     NSError* error1;
@@ -267,21 +232,13 @@
                           options:kNilOptions
                           error:&error1];
     NSLog(@"%@",  [dict objectForKey:@"count"]);
-//    NSLog(<#NSString *format, ...#>)
     self.bets = [[NSMutableArray alloc] initWithArray:
-                 [dict objectForKey:@"bets"]];
-/*                 @[@{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
+                 [dict objectForKey:@"bets"]];*/
+    self.bets = [[NSMutableArray alloc] initWithArray:@[@{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
                    @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
                    @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"},
                    @{@"Name" : @"h1", @"PartyA" : @"W1", @"PartyB" : @"W2", @"PenaltyA":@"d1", @"PenaltyB":@"d2"}
-                   ]];*/
-    self.size = [self.bets count];
-    NSLog(@"%d", _size);
-    _section = 1;
-   // UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationController.navigationItem
-    NSLog(@"+++++++++++");
-   // self.navigationItem.
+                   ]];
 
     
 }

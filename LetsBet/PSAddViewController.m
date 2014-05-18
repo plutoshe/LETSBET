@@ -66,8 +66,6 @@
         self.callback(tmp);
     }
     UINavigationController *navController = self.navigationController;
-    // retain ourselves so that the controller will still exist once it's popped off
-//    [self retain];
     [navController popViewControllerAnimated:NO];
 //    [self.view bringSubviewToFront:self.mapView];
 //    [self.view removeFromSuperview];
@@ -98,7 +96,7 @@
     NSArray *labelNames=@[@"事务",@"甲方",@"乙方",@"甲方惩罚",@"乙方惩罚"];
     NSArray *placeHolders=@[@"请输入事务",@"请输入甲方",@"请输入乙方",@"请输入惩罚措施",@"请输入惩罚措施"];
     CGFloat y=50;
-    _size = [labelNames count] + 99;
+    _size = (int)[labelNames count] + 99;
     for (int i=0; i<[labelNames count]; i++) {
         
         LTView *ltview=[[LTView alloc]initWithFrame:CGRectMake(10, y, 280, 30) labelText:[labelNames objectAtIndex:i] placeholder:[placeHolders objectAtIndex:i] spacing:0];

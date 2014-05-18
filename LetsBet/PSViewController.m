@@ -128,7 +128,7 @@ typedef NS_OPTIONS(NSUInteger, ScrollingState) {
 }
 
 - (void)setBackgroundImage:(UIImageView *)imageView withIndex:(NSInteger)index{
-    NSLog(@"%d", index);
+    NSLog(@"%ld", index);
     if (index >= [pages count]){
         [imageView setImage:nil];
         return;
@@ -150,16 +150,8 @@ typedef NS_OPTIONS(NSUInteger, ScrollingState) {
  
 */
 - (void) viewWillAppear:(BOOL)animated {
-   /* UIBarButtonItem *createBut =[[UIBarButtonItem alloc] initWithTitle:@"NEW" style:UIBarButtonItemStylePlain target:self action:@selector(insertObject:atIndex:)];
-    self.navigationItem.leftBarButtonItem = createBut;
-	self.navigationItem.rightBarButtonItem = createBut;
-    self.navigationItem.title = @"@@@";*/
-    //    self.navigationController.navigationItem.title = @"!!!";
-    
-
- //   [self startScrolling];
-//    [self autoScrollDurationOnPage];
-//        self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.translucent = YES;
 }
 - (void) viewWillDisappear:(BOOL)animated {
     [self stopScrolling];
